@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class ChannelItem extends Component {
   render() {
-    return <li>{this.props.data.title}</li>;
+    return <li><Link to={`channel/${this.props.data.id}`}>{this.props.data.title}</Link></li>;
   }
 };
 
