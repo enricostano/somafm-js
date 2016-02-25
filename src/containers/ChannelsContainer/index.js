@@ -22,7 +22,10 @@ class ChannelsContainer extends Component {
 
   render() {
     return (
-      <ChannelList channels={this.state.channels}/>
+      <div>
+        {this.props.children}
+        <ChannelList channels={this.state.channels}/>
+      </div>
     );
   }
 };
