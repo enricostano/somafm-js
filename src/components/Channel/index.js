@@ -25,8 +25,12 @@ class Channel extends Component {
     this.setStreamUrl();
   }
 
-  componentDidUpdate() {
-    this.setStreamUrl();
+  componentDidUpdate(nextProps) {
+    console.log(this.props.params.id)
+    console.log(nextProps.params.id)
+    if (this.props.params.id != nextProps.params.id) {
+      this.setStreamUrl();
+    }
   }
 
   render() {
