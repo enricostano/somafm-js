@@ -11,9 +11,11 @@ document.body.appendChild(div);
 render((
   <Router history={hashHistory}>
     <Route path='/' component={App}>
-      <IndexRoute component={ChannelList} />
-      <Route path='channel/:id' component={Channel}/>
+      <IndexRoute components={{ sidebar: ChannelList, content: Channel }}/>
+      <Route path='channel' components={{ sidebar: ChannelList, content: Channel }}>
+        <Route path=':id' component={Channel}/>
+      </Route>
     </Route>
-    <Route path='*' component={() => alert('404')} />
+    <Route path='*' component={() => alert('404')}/>
   </Router>
-), div)
+), div);

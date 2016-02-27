@@ -1,15 +1,14 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
-
   resolve: {
     root: [
       path.resolve('./src'),
     ]
   },
-
   output: {
     path: 'dist',
     filename: 'bundle.[hash].js',
@@ -17,6 +16,10 @@ module.exports = {
   },
   module: {
     loaders: [
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -32,6 +35,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'SomaFM rules!'
-    })
+    }),
+    new ExtractTextPlugin('[name].css')
   ]
 };

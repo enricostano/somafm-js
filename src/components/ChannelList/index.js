@@ -22,11 +22,11 @@ class ChannelList extends Component {
 
   render() {
     return (
-      <ol>
+      <ul>
         {this.state.channels.map(function(channel, index) {
           return <ChannelItem key={index} data={channel}/>;
         })}
-      </ol>
+      </ul>
     );
   }
 };
