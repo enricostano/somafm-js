@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import Header from 'components/Header';
 import './styles/index.css';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <header className="header">
-          Soma FM
-        </header>
+        <Header />
         <section className="sidebar">
           {this.props.sidebar}
         </section>

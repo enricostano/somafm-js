@@ -1,0 +1,9 @@
+a.channel-item {
+  text-decoration: none;
+  padding: 10px;
+  color: #FFF;
+}
+
+a.channel-item:hover {
+  background: #356094;
+}

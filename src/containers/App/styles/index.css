@@ -1,11 +1,7 @@
-.header {
-  font-size: large;
-}
-
 .sidebar {
   float: left;
   background: #eee;
-  width: 200px;
+  width: 400px;
 }
 
 .content {

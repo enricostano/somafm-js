@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ChannelItem from 'components/ChannelItem';
+import './styles/index.css';
 
 class ChannelList extends Component {
   constructor() {
@@ -22,7 +23,7 @@ class ChannelList extends Component {
 
   render() {
     return (
-      <ul>
+      <ul className="channel-list">
         {this.state.channels.map(function(channel, index) {
           return <ChannelItem key={index} data={channel}/>;
         })}
