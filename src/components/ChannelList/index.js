@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ChannelItem from 'components/ChannelItem';
 import './styles/index.css';
+import $ from 'jquery';
 
 class ChannelList extends Component {
   constructor() {
@@ -11,14 +12,33 @@ class ChannelList extends Component {
   }
 
   componentDidMount() {
-    var self = this;
-    var request = new XMLHttpRequest();
-    request.open('GET', 'http://somafm.com/channels.json');
-    request.addEventListener('load', function() {
-      var response = JSON.parse(this.responseText);
-      self.setState({channels: response.channels});
-    });
-    request.send();
+    console.log($('.sidebar'));
+    $.post({
+      url: 'http://192.168.1.40:9091/transmission/rpc',
+      headers: {
+        Authorization: "Basic " + btoa("transmission:PASSWORD")
+      },
+      success: function(response) {
+        console.log('HOLA');
+      }
+    }).fail(function() {
+      console.log('M I E R D A');
+    }
+          );
+    //var self = this;
+    //var request = new XMLHttpRequest();
+    //request.addEventListener('error', function() {
+    //  console.log('ERROR');
+    //  console.log(this);
+    //});
+    //request.addEventListener('load', function() {
+    //  var response = JSON.parse(this.responseText);
+    //  self.setState({channels: response.channels});
+    //});
+    //request.open('POST', 'http://192.168.1.40:9091/transmission/rpc');
+    //request.setRequestHeader('Authorization', 'Basic' + btoa('transmission:papapa22'));
+    //request.withCredentials = 'true';
+    //request.send();
   }
 
   render() {
